@@ -1,0 +1,143 @@
+{
+  "SAT_Math_Algebra": [
+    {
+      "id": "sat_math_alg_001",
+      "category": "SAT_Math_Algebra",
+      "difficulty": "easy",
+      "question": "If 3x + 7 = 22, what is x?",
+      "options": ["3", "5", "7", "9"],
+      "correct_answer": "5",
+      "explanation": "Subtract 7 from both sides: 3x = 15. Divide by 3: x = 5."
+    },
+    {
+      "id": "sat_math_alg_002",
+      "category": "SAT_Math_Algebra",
+      "difficulty": "medium",
+      "question": "If 2(x - 3) = 10, what is x?",
+      "options": ["5", "7", "8", "11"],
+      "correct_answer": "8",
+      "explanation": "Divide both sides by 2: x - 3 = 5. Add 3: x = 8."
+    },
+    {
+      "id": "sat_math_alg_003",
+      "category": "SAT_Math_Algebra",
+      "difficulty": "medium",
+      "question": "If x² + 5x + 6 = 0, what are the solutions for x?",
+      "options": ["x = -2 or x = -3", "x = 2 or x = 3", "x = -1 or x = -6", "x = 1 or x = 6"],
+      "correct_answer": "x = -2 or x = -3",
+      "explanation": "Factor: (x + 2)(x + 3) = 0. So x = -2 or x = -3."
+    },
+    {
+      "id": "sat_math_alg_004",
+      "category": "SAT_Math_Algebra",
+      "difficulty": "hard",
+      "question": "If 2x² - 8x + 6 = 0, what is the sum of the solutions?",
+      "options": ["2", "3", "4", "6"],
+      "correct_answer": "4",
+      "explanation": "For ax² + bx + c = 0, sum of solutions = -b/a = -(-8)/2 = 4."
+    },
+    {
+      "id": "sat_math_alg_005",
+      "category": "SAT_Math_Algebra",
+      "difficulty": "easy",
+      "question": "If y = 2x + 3 and x = 4, what is y?",
+      "options": ["7", "9", "11", "13"],
+      "correct_answer": "11",
+      "explanation": "Substitute x = 4: y = 2(4) + 3 = 8 + 3 = 11."
+    }
+  ],
+  "SAT_Math_Geometry": [
+    {
+      "id": "sat_math_geo_001",
+      "category": "SAT_Math_Geometry",
+      "difficulty": "easy",
+      "question": "What is the area of a rectangle with length 8 and width 5?",
+      "options": ["13", "26", "40", "48"],
+      "correct_answer": "40",
+      "explanation": "Area = length × width = 8 × 5 = 40."
+    },
+    {
+      "id": "sat_math_geo_002",
+      "category": "SAT_Math_Geometry",
+      "difficulty": "medium",
+      "question": "A right triangle has legs of length 3 and 4. What is the length of the hypotenuse?",
+      "options": ["5", "6", "7", "8"],
+      "correct_answer": "5",
+      "explanation": "Use Pythagorean theorem: a² + b² = c². So 3² + 4² = 9 + 16 = 25, c = 5."
+    },
+    {
+      "id": "sat_math_geo_003",
+      "category": "SAT_Math_Geometry",
+      "difficulty": "medium",
+      "question": "What is the circumference of a circle with radius 7? (Use π ≈ 3.14)",
+      "options": ["22", "44", "154", "88"],
+      "correct_answer": "44",
+      "explanation": "Circumference = 2πr = 2 × 3.14 × 7 ≈ 44."
+    },
+    {
+      "id": "sat_math_geo_004",
+      "category": "SAT_Math_Geometry",
+      "difficulty": "hard",
+      "question": "A triangle has angles of 45°, 45°, and 90°. If one leg has length 6, what is the hypotenuse?",
+      "options": ["6", "6√2", "12", "8"],
+      "correct_answer": "6√2",
+      "explanation": "45-45-90 triangle ratio is 1:1:√2. So hypotenuse = leg × √2 = 6√2."
+    },
+    {
+      "id": "sat_math_geo_005",
+      "category": "SAT_Math_Geometry",
+      "difficulty": "easy",
+      "question": "What is the perimeter of a square with side length 9?",
+      "options": ["18", "27", "36", "81"],
+      "correct_answer": "36",
+      "explanation": "Perimeter = 4 × side = 4 × 9 = 36."
+    }
+  ],
+  "AP_Chem_Stoichiometry": [
+    {
+      "id": "ap_chem_sto_001",
+      "category": "AP_Chem_Stoichiometry",
+      "difficulty": "medium",
+      "question": "How many moles of O₂ are needed to react with 2 moles of H₂ in 2H₂ + O₂ → 2H₂O?",
+      "options": ["0.5", "1", "2", "4"],
+      "correct_answer": "1",
+      "explanation": "The stoichiometric ratio is 2:1 for H₂:O₂. So 2 moles H₂ needs 1 mole O₂."
+    },
+    {
+      "id": "ap_chem_sto_002",
+      "category": "AP_Chem_Stoichiometry",
+      "difficulty": "hard",
+      "question": "How many grams of CO₂ are produced from 24g of C in C + O₂ → CO₂? (C = 12 g/mol, O = 16 g/mol)",
+      "options": ["44", "66", "88", "32"],
+      "correct_answer": "88",
+      "explanation": "24g C = 2 mol C. Ratio is 1:1, so 2 mol CO₂. Mass = 2 × 44 = 88g."
+    },
+    {
+      "id": "ap_chem_sto_003",
+      "category": "AP_Chem_Stoichiometry",
+      "difficulty": "easy",
+      "question": "How many molecules are in 1 mole of any substance?",
+      "options": ["6.022 × 10²³", "1.000 × 10²³", "3.011 × 10²³", "12.044 × 10²³"],
+      "correct_answer": "6.022 × 10²³",
+      "explanation": "Avogadro's number: 1 mole = 6.022 × 10²³ particles."
+    },
+    {
+      "id": "ap_chem_sto_004",
+      "category": "AP_Chem_Stoichiometry",
+      "difficulty": "medium",
+      "question": "In the reaction N₂ + 3H₂ → 2NH₃, how many moles of NH₃ are produced from 6 moles of H₂?",
+      "options": ["2", "4", "6", "9"],
+      "correct_answer": "4",
+      "explanation": "Ratio H₂:NH₃ is 3:2. So 6 mol H₂ × (2/3) = 4 mol NH₃."
+    },
+    {
+      "id": "ap_chem_sto_005",
+      "category": "AP_Chem_Stoichiometry",
+      "difficulty": "hard",
+      "question": "What is the limiting reactant when 4 mol Al reacts with 3 mol O₂ in 4Al + 3O₂ → 2Al₂O₃?",
+      "options": ["Al", "O₂", "Both", "Neither"],
+      "correct_answer": "Both",
+      "explanation": "Ratio is 4:3. With 4 mol Al and 3 mol O₂, the ratio is exact, so both are completely consumed."
+    }
+  ]
+}
