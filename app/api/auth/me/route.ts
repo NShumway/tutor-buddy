@@ -1,24 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase';
 
 export async function GET(request: NextRequest) {
-  const session = cookies().get('session')?.value;
+  const accessToken = cookies().get('sb-access-token')?.value;
 
-  if (!session) {
+  if (!accessToken) {
     return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
   }
 
-  // Extract student ID from mock session token
-  const studentId = session.replace('mock-session-', '');
+  // Get user from access token
+  const { data: { user }, error: authError } = await supabaseAdmin.auth.getUser(accessToken);
 
-  const { data: student, error } = await supabase
+  if (authError || !user) {
+    return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
+  }
+
+  // Fetch student profile
+  const { data: student, error: studentError } = await supabaseAdmin
     .from('students')
     .select('*')
-    .eq('id', studentId)
+    .eq('id', user.id)
     .single();
 
-  if (error || !student) {
+  if (studentError || !student) {
     return NextResponse.json({ error: 'Student not found' }, { status: 404 });
   }
 

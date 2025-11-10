@@ -86,8 +86,11 @@ export default function LoginPage() {
             {loading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
-        <p className="text-xs text-slate-500 text-center">
-          Mock auth: Use any email from the database with any password
+        <p className="text-sm text-slate-400 text-center mt-4">
+          Don't have an account?{' '}
+          <a href="/signup" className="text-blue-400 hover:text-blue-300">
+            Sign up
+          </a>
         </p>
       </div>
     </div>

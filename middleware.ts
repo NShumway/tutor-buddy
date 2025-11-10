@@ -2,16 +2,17 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  const session = request.cookies.get('session');
+  const accessToken = request.cookies.get('sb-access-token');
   const { pathname } = request.nextUrl;
 
   // Public routes
-  if (pathname === '/login' || pathname === '/api/auth/login') {
+  const publicRoutes = ['/login', '/signup', '/api/auth/login', '/api/auth/signup'];
+  if (publicRoutes.includes(pathname)) {
     return NextResponse.next();
   }
 
   // Protected routes - redirect to login if no session
-  if (!session && !pathname.startsWith('/api')) {
+  if (!accessToken && !pathname.startsWith('/api')) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
