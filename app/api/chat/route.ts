@@ -19,7 +19,9 @@ export async function POST(request: NextRequest) {
     await saveChatMessage(student_id, 'user', message);
 
     // Build context (RAG + history)
+    console.log('Building chat context for student:', student_id);
     const context = await buildChatContext(student_id, message);
+    console.log('Context built successfully, retrieved chunks:', context.retrieved_chunks.length);
 
     // Create streaming response
     const stream = new ReadableStream({
