@@ -6,15 +6,18 @@ export async function GET(request: NextRequest) {
   const student_id = searchParams.get('student_id');
   const goal_id = searchParams.get('goal_id');
 
-  if (!student_id || !goal_id) {
+  if (!student_id) {
     return NextResponse.json(
-      { error: 'Missing student_id or goal_id' },
+      { error: 'Missing student_id' },
       { status: 400 }
     );
   }
 
   try {
-    const stats = await getCategoryStats(student_id, goal_id);
+    // If no goal_id provided, get stats across all goals
+    const stats = goal_id
+      ? await getCategoryStats(student_id, goal_id)
+      : await getCategoryStats(student_id);
 
     const totalCorrect = stats.reduce((sum, s) => sum + s.correct, 0);
     const totalAttempts = stats.reduce((sum, s) => sum + s.total, 0);

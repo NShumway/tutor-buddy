@@ -1,5 +1,12 @@
 import { getCurrentStudent } from '@/lib/auth';
 import { redirect } from 'next/navigation';
+import DashboardLayout from '@/components/DashboardLayout';
+import RetentionNudge from '@/components/RetentionNudge';
+import GoalsOverview from '@/components/GoalsOverview';
+import QuickActions from '@/components/QuickActions';
+import StatsSummary from '@/components/StatsSummary';
+import PracticeRecommendations from '@/components/PracticeRecommendations';
+import RecentActivity from '@/components/RecentActivity';
 
 export default async function DashboardPage() {
   const student = await getCurrentStudent();
@@ -9,24 +16,32 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-900">
-      <header className="bg-slate-800 shadow-lg border-b border-slate-700">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-slate-100">AI Study Companion</h1>
-          <div className="flex items-center gap-4">
-            <span className="text-slate-300">{student.name}</span>
-            <form action="/api/auth/logout" method="POST">
-              <button className="text-sm text-slate-400 hover:text-slate-200">
-                Logout
-              </button>
-            </form>
-          </div>
+    <DashboardLayout student={student}>
+      <div className="space-y-6">
+        {/* Welcome header */}
+        <div>
+          <h2 className="text-3xl font-bold mb-2 text-slate-100">Welcome back, {student.name.split(' ')[0]}!</h2>
+          <p className="text-slate-400">Here's your learning progress</p>
         </div>
-      </header>
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        <h2 className="text-xl font-semibold mb-4 text-slate-100">Welcome back, {student.name}!</h2>
-        <p className="text-slate-400">Dashboard coming in Phase 6...</p>
-      </main>
-    </div>
+
+        {/* Retention nudge */}
+        <RetentionNudge student_id={student.id} />
+
+        {/* Stats summary */}
+        <StatsSummary student_id={student.id} />
+
+        {/* Quick actions */}
+        <QuickActions />
+
+        {/* Practice recommendations */}
+        <PracticeRecommendations student_id={student.id} />
+
+        {/* Goals overview */}
+        <GoalsOverview student_id={student.id} />
+
+        {/* Recent activity */}
+        <RecentActivity student_id={student.id} />
+      </div>
+    </DashboardLayout>
   );
 }

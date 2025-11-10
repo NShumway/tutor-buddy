@@ -42,13 +42,19 @@ export function getProblemById(problemId: string): Problem | null {
  */
 export async function getCategoryStats(
   student_id: string,
-  goal_id: string
+  goal_id?: string
 ): Promise<CategoryStats[]> {
-  const { data, error } = await supabaseAdmin
+  let query = supabaseAdmin
     .from('practice_attempts')
     .select('category, correct')
-    .eq('student_id', student_id)
-    .eq('goal_id', goal_id);
+    .eq('student_id', student_id);
+
+  // Only filter by goal_id if provided
+  if (goal_id) {
+    query = query.eq('goal_id', goal_id);
+  }
+
+  const { data, error } = await query;
 
   if (error) {
     throw new Error(`Failed to get stats: ${error.message}`);
