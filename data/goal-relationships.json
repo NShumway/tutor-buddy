@@ -1,0 +1,65 @@
+{
+  "SAT_Math": [
+    {
+      "goal_type": "SAT_Verbal",
+      "reason": "Complete your SAT prep",
+      "conversion_rate": 0.85
+    },
+    {
+      "goal_type": "College_Essays",
+      "reason": "Students who ace SAT often need essay help",
+      "conversion_rate": 0.80
+    },
+    {
+      "goal_type": "AP_Calculus",
+      "reason": "Build on your math skills",
+      "conversion_rate": 0.45
+    }
+  ],
+  "SAT_Verbal": [
+    {
+      "goal_type": "College_Essays",
+      "reason": "Polish your writing skills",
+      "conversion_rate": 0.90
+    },
+    {
+      "goal_type": "AP_English",
+      "reason": "Build on your verbal skills",
+      "conversion_rate": 0.50
+    },
+    {
+      "goal_type": "SAT_Math",
+      "reason": "Complete your SAT prep",
+      "conversion_rate": 0.70
+    }
+  ],
+  "AP_Chemistry": [
+    {
+      "goal_type": "AP_Physics",
+      "reason": "80% of Chemistry students take Physics",
+      "conversion_rate": 0.80
+    },
+    {
+      "goal_type": "AP_Biology",
+      "reason": "Expand your science knowledge",
+      "conversion_rate": 0.65
+    },
+    {
+      "goal_type": "SAT_Science",
+      "reason": "Prepare for college admissions",
+      "conversion_rate": 0.55
+    }
+  ],
+  "College_Essays": [
+    {
+      "goal_type": "SAT_Verbal",
+      "reason": "Strengthen your writing foundation",
+      "conversion_rate": 0.60
+    },
+    {
+      "goal_type": "AP_English",
+      "reason": "Advanced writing skills",
+      "conversion_rate": 0.55
+    }
+  ]
+}
