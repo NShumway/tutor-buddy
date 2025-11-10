@@ -2,22 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Force dark mode everywhere */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  color-scheme: dark;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Input fields with high contrast dark mode */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  color: #f1f5f9;
+  background-color: #1e293b;
+  border-color: #475569;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+textarea::placeholder {
+  color: #64748b;
+}
+
+/* Ensure pre/code blocks are visible */
+pre {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
 }
 
 @layer utilities {

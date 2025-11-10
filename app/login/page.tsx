@@ -40,11 +40,11 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">
+    <div className="min-h-screen flex items-center justify-center bg-slate-900">
+      <div className="max-w-md w-full space-y-8 p-8 bg-slate-800 rounded-lg shadow-xl border border-slate-700">
         <div>
           <h2 className="text-3xl font-bold text-center">AI Study Companion</h2>
-          <p className="mt-2 text-center text-gray-600">Sign in to continue</p>
+          <p className="mt-2 text-center text-slate-400">Sign in to continue</p>
         </div>
         <form onSubmit={handleLogin} className="mt-8 space-y-6">
           <div>
@@ -76,7 +76,7 @@ export default function LoginPage() {
             />
           </div>
           {error && (
-            <div className="text-red-600 text-sm">{error}</div>
+            <div className="text-red-400 text-sm">{error}</div>
           )}
           <button
             type="submit"
@@ -86,7 +86,7 @@ export default function LoginPage() {
             {loading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
-        <p className="text-xs text-gray-500 text-center">
+        <p className="text-xs text-slate-500 text-center">
           Mock auth: Use any email from the database with any password
         </p>
       </div>
