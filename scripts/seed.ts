@@ -46,19 +46,52 @@ const students: Student[] = [
 async function seedDatabase() {
   console.log('🌱 Starting database seed...');
 
-  // 1. Create students
-  console.log('Creating students...');
-  const { data: createdStudents, error: studentError } = await supabase
-    .from('students')
-    .insert(students)
-    .select();
+  // 1. Create Supabase Auth users and students
+  console.log('Creating auth users and student profiles...');
+  const createdStudents = [];
+  const defaultPassword = 'password123'; // Default password for demo accounts
 
-  if (studentError) {
-    console.error('Error creating students:', studentError);
+  for (const student of students) {
+    // Create auth user
+    const { data: authData, error: authError } = await supabase.auth.admin.createUser({
+      email: student.email,
+      password: defaultPassword,
+      email_confirm: true,
+    });
+
+    if (authError) {
+      console.error(`Error creating auth user for ${student.email}:`, authError);
+      continue;
+    }
+
+    // Create student record with same ID as auth user
+    const { data: studentData, error: studentError } = await supabase
+      .from('students')
+      .insert({
+        id: authData.user.id,
+        email: student.email,
+        name: student.name,
+        created_at: student.created_at,
+      })
+      .select()
+      .single();
+
+    if (studentError) {
+      console.error(`Error creating student profile for ${student.email}:`, studentError);
+      // Rollback: delete auth user
+      await supabase.auth.admin.deleteUser(authData.user.id);
+      continue;
+    }
+
+    createdStudents.push(studentData);
+  }
+
+  if (createdStudents.length === 0) {
+    console.error('No students were created successfully');
     return;
   }
 
-  console.log(`✓ Created ${createdStudents.length} students`);
+  console.log(`✓ Created ${createdStudents.length} students with auth users`);
 
   // 2. Create goals for each student
   console.log('Creating goals...');
@@ -297,7 +330,7 @@ async function seedDatabase() {
   console.log('- emily@example.com (struggling)');
   console.log('- david@example.com (multi-goal)');
   console.log('- isabella@example.com (inactive)');
-  console.log('\nPassword: any (mock auth accepts any password)');
+  console.log('\nDefault password for all demo accounts: password123');
 }
 
 seedDatabase().catch(console.error);
