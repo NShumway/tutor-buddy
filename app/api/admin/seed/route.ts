@@ -11,8 +11,18 @@ export async function POST(request: NextRequest) {
     const authHeader = request.headers.get('authorization');
     const secret = process.env.ADMIN_SEED_SECRET || 'change-me-in-production';
 
+    console.log('Auth check:', {
+      hasAuthHeader: !!authHeader,
+      hasSecret: !!secret,
+      secretLength: secret?.length,
+      authHeaderLength: authHeader?.length
+    });
+
     if (authHeader !== `Bearer ${secret}`) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json({
+        error: 'Unauthorized',
+        debug: process.env.NODE_ENV === 'development' ? { hasSecret: !!secret } : undefined
+      }, { status: 401 });
     }
 
     const { reset } = await request.json();
